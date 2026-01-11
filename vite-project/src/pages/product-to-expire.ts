@@ -14,6 +14,7 @@ export const getProductsToExpirePage = (props: getProductsToExpirePageProps) => 
 
 const productsTable = (data: ProductLine[]): HTMLTableElement => {
     const table = document.createElement('table');
+    table.className = "table is-fullwidth is-striped is-hoverable";
     const results = data.map(productLine => `
                 <tr>
                     <td>${productLine.product?.name ?? 'N/A'}</td>
@@ -23,13 +24,12 @@ const productsTable = (data: ProductLine[]): HTMLTableElement => {
                 </tr>
             `).join('');
     table.innerHTML = `
-        <table class="table">
         <thead>
             <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th><abbr title="Fecha de expiración">Expira</abbr></th>
-            <th><abbr title="Precio">Precio</abbr></th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th><abbr title="Fecha de expiración">Expira</abbr></th>
+                <th><abbr title="Precio">Precio</abbr></th>
             </tr>
         </thead>
         <tfoot>
@@ -43,7 +43,6 @@ const productsTable = (data: ProductLine[]): HTMLTableElement => {
         <tbody>
             ${results}
         </tbody>    
-        </table>
     `;
     return table;
 }

@@ -3,7 +3,9 @@ interface GetContainerProps {
 }
 export const setContainerPageInnerHtml = (props: GetContainerProps) => {
   if(document.getElementById("main-container")){
-    document.getElementById("main-container")!.innerHTML = "";
+    document.getElementById("app")!
+    .removeChild(document.getElementById("main-container")!
+    );
   }
   let containerElement: HTMLDivElement = getInitialContainer();
   const container = containerElement;
