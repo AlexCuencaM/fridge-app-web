@@ -66,7 +66,6 @@ export const getNavbar = () => {
   navbar.querySelector("#type_products-view")!.addEventListener("click", () => {
     toTypeProductsPage().then();
   });
-// create_type_products-view
   navbar.querySelector("#create_type_products-view")!.addEventListener("click", () => {
     toCreateTypeProductPage().then();
   });
