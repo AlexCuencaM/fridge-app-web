@@ -1,4 +1,4 @@
-import { toCreateProductLinePage, toCreateProductsPage, toHomePage, toProductsPage } from "../router";
+import { toCreateProductLinePage, toCreateProductsPage, toCreateTypeProductPage, toHomePage, toProductsPage, toTypeProductsPage } from "../router";
 
 export const getNavbar = () => {
   const navbar = document.createElement('div');
@@ -39,10 +39,10 @@ export const getNavbar = () => {
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
+                    <a class="navbar-item" id="create_type_products-view">
                         Crear
                     </a>
-                    <a class="navbar-item">
+                    <a class="navbar-item" id ="type_products-view">
                         Ver
                     </a>
                 </div>
@@ -62,6 +62,13 @@ export const getNavbar = () => {
   });
   navbar.querySelector("#product_line-view")!.addEventListener("click", () => {
     toCreateProductLinePage().then();
+  });
+  navbar.querySelector("#type_products-view")!.addEventListener("click", () => {
+    toTypeProductsPage().then();
+  });
+// create_type_products-view
+  navbar.querySelector("#create_type_products-view")!.addEventListener("click", () => {
+    toCreateTypeProductPage().then();
   });
   return navbar.firstElementChild as HTMLElement;
 }

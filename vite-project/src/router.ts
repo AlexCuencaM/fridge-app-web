@@ -5,6 +5,9 @@ import { getProductsRequest } from "./services/productServices";
 import { getProductToExpireRequest } from "./services/productLineServices";
 import { postProductsPage } from "./pages/create-products";
 import { createProductLinePage } from "./pages/product-line";
+import { getTypeProductsPage } from "./pages/type-products";
+import { getTypeProductsRequest } from "./services/productTypeServices";
+import { postTypeProductsPage } from "./pages/create-type_products";
 
 export const toHomePage = async () => {
     const productsToExpireData = await getProductToExpireRequest();
@@ -29,5 +32,18 @@ export const toCreateProductsPage = async () => {
 export const toCreateProductLinePage = async () => {
     const productLinePage = createProductLinePage();
     const containerElement = setContainerPageInnerHtml({ page: productLinePage });
+    document.getElementById("app")!.appendChild(containerElement);
+}
+
+export const toTypeProductsPage = async () => {
+    const results = await getTypeProductsRequest();
+    const createTypeProductPage = getTypeProductsPage({ data: results });
+    const containerElement = setContainerPageInnerHtml({ page: createTypeProductPage });
+    document.getElementById("app")!.appendChild(containerElement);
+}
+
+export const toCreateTypeProductPage = async () =>{
+    const typeProductPage = postTypeProductsPage();
+    const containerElement = setContainerPageInnerHtml({ page: typeProductPage });
     document.getElementById("app")!.appendChild(containerElement);
 }
