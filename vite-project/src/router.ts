@@ -4,6 +4,7 @@ import { getProductsPage } from "./pages/products";
 import { getProductsRequest } from "./services/productServices";
 import { getProductToExpireRequest } from "./services/productLineServices";
 import { postProductsPage } from "./pages/create-products";
+import { createProductLinePage } from "./pages/product-line";
 
 export const toHomePage = async () => {
     const productsToExpireData = await getProductToExpireRequest();
@@ -20,8 +21,13 @@ export const toProductsPage = async () => {
 }
 
 export const toCreateProductsPage = async () => {
-    // const createProductsPage = postcre();
     const productPage = postProductsPage();
     const containerElement = setContainerPageInnerHtml({ page: productPage });
+    document.getElementById("app")!.appendChild(containerElement);
+}
+
+export const toCreateProductLinePage = async () => {
+    const productLinePage = createProductLinePage();
+    const containerElement = setContainerPageInnerHtml({ page: productLinePage });
     document.getElementById("app")!.appendChild(containerElement);
 }

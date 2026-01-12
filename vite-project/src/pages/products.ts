@@ -1,4 +1,4 @@
-import type { Products } from "../models/Products";
+import { Products } from "../models/Products";
 
 interface getProductProps {
     data: Products[];
